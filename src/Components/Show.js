@@ -1,6 +1,7 @@
 import React, {useEffect, useReducer} from 'react'
 import {useParams} from 'react-router-dom'
 import { apiGet } from '../misc/config';
+import { InfoBlock, ShowPageWrapper } from '../pages/Show.Styled';
 import Cast from './show/Cast';
 import Details from './show/Details';
 import Seasons from './show/Seasons';
@@ -71,7 +72,7 @@ const Show = () => {
                 </div>
             )
         }
-        return <div>
+        return <ShowPageWrapper>
             <ShowMainData  
                 image={show.image} 
                 name={show.name} 
@@ -80,29 +81,29 @@ const Show = () => {
                 tags={show.genres} 
             />
 
-            <div>
+            <InfoBlock>
                 <h2>Details</h2>
                 <Details 
                     status={show.status}
                     network={show.network}
                     premiered={show.premiered}
                 />
-            </div>
+            </InfoBlock>
 
-            <div>
+            <InfoBlock>
                 <h2>Seasons</h2>
                 <Seasons 
                     seasons={show._embedded.seasons}
                 />
-            </div>
+            </InfoBlock>
 
-            <div>
+            <InfoBlock>
                 <h2>Cast</h2>
                 <Cast 
                     cast={show._embedded.cast}
                 />
-            </div>
-        </div>
+            </InfoBlock>
+        </ShowPageWrapper>
         
     }
 export default Show
