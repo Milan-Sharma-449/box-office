@@ -34,6 +34,7 @@ export function useShows(key = 'shows') {
 }
 
 export function useLastQuery(key = 'lastQuery') {
+    // eslint-disable-next-line no-undef
     const [input, setInput] = useState(() => {
       const persisted = sessionStorage.getItem(key);
   
@@ -73,6 +74,7 @@ export function useLastQuery(key = 'lastQuery') {
     useEffect(() => {
       let isMounted = true;
   
+      // eslint-disable-next-line no-undef
       apiGet(`/shows/${showId}?embed[]=seasons&embed[]=cast`)
         .then(results => {
           if (isMounted) {

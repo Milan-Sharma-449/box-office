@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React, {useEffect, useReducer} from 'react'
 import {useParams} from 'react-router-dom'
 import { apiGet } from '../misc/config';
@@ -54,7 +55,6 @@ const Show = () => {
         };
     }, [id])
 
-    console.log('show', show)
 
 
     
