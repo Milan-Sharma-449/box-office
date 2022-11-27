@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useCallback, useState} from 'react'
 import ActorGrid from '../Components/actor/ActorGrid';
 import MainPageLayout from '../Components/MainPageLayout'
 import ShowGrid from '../Components/show/ShowGrid';
@@ -9,6 +9,7 @@ import {
     SearchButtonWrapper,
   } from './Home.styled';
 import CustomRadio from '../Components/CustomRadio';
+import { useWhyDidYouUpdate } from '../misc/custom-hooks';
 
 const Home = () => {
     const [input, setInput] = useState('')
@@ -24,9 +25,11 @@ const Home = () => {
         })
     }
 
-    const onInputChange=(ev) => {
-        setInput(ev.target.value);
-    }
+    
+
+    const onInputChange= useCallback((ev) => {
+      setInput(ev.target.value);
+  },[])
 
     const onKeyDown = (ev) => {
         if(ev.keyCode === 13) {
@@ -34,10 +37,9 @@ const Home = () => {
         }
     }
 
-    const onRadioChange = (ev) => {
-        setSearchOption(ev.target.value)
-        console.log(searchOption)
-    }
+    const onRadioChange = useCallback(ev => {
+      setSearchOption(ev.target.value)
+  }, []) 
 
     const renderResults = () => {
         if(results && results.length === 0) {
@@ -49,6 +51,8 @@ const Home = () => {
         }
         return null
     }
+
+  useWhyDidYouUpdate('home', { onInputChange, onKeyDown })
 
     
 
