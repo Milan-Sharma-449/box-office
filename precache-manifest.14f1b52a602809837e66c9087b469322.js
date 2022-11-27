@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0cc9634f267731b80fbb2bea24f71cdb",
+    "revision": "65ea2db666d22d5732111531ffd0bcf1",
     "url": "/box-office/index.html"
   },
   {
